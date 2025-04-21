@@ -1,2 +1,3 @@
 rootProject.name = 'TravelNote'
+include 'config-server'
 
