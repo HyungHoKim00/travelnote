@@ -10,8 +10,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/config-server" />
-            <option value="$PROJECT_DIR$/eureka" />
             <option value="$PROJECT_DIR$/gateway" />
+            <option value="$PROJECT_DIR$/member" />
           </set>
         </option>
       </GradleProjectSettings>

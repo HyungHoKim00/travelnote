@@ -1,4 +1,5 @@
 rootProject.name = 'TravelNote'
 include 'config-server'
 include 'gateway'
+include 'member'
 
