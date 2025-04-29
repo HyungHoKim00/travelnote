@@ -1,0 +1,15 @@
+security:
+  jwt:
+    token:
+      secret-key: test
+      expire-length: 3600000
+      algorithm: HS256
+
+cookie:
+  token-key: test
+  http-only: false
+  secure: false
+  domain: localhost
+  path: /
+  same-site: none
+  max-age: 7200 #2시간
