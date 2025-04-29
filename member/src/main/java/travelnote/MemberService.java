@@ -14,11 +14,11 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final AuthService authService;
 
-    public SignupResponse create(SignupRequest signupRequest) {
-        validateEmailExist(signupRequest.email());
+    public SignupResponse create(SignupRequest request) {
+        validateEmailExist(request.email());
 
-        String encodedPassword = authService.encode(signupRequest.password());
-        Member member = new Member(signupRequest.email(), encodedPassword);
+        String encodedPassword = authService.encode(request.password());
+        Member member = new Member(request.email(), encodedPassword);
         Member savedMember = memberRepository.save(member);
         return new SignupResponse(savedMember.getId());
     }
@@ -29,9 +29,9 @@ public class MemberService {
         }
     }
 
-    public String login(LoginRequest loginRequest) {
-        Member member = memberRepository.findByEmail(loginRequest.email());
-        authService.validatePassword(loginRequest.password(), member.getPassword());
+    public String login(LoginRequest request) {
+        Member member = memberRepository.findByEmail(request.email());
+        authService.validatePassword(request.password(), member.getPassword());
         return authService.createToken(member);
     }
 }

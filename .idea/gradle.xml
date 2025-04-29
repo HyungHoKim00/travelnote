@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/config-server" />
             <option value="$PROJECT_DIR$/gateway" />
             <option value="$PROJECT_DIR$/member" />
+            <option value="$PROJECT_DIR$/trip" />
           </set>
         </option>
       </GradleProjectSettings>
