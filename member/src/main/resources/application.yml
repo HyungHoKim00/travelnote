@@ -13,3 +13,13 @@ cookie:
   path: /
   same-site: none
   max-age: 7200 #2시간
+
+spring:
+  application:
+    name: member-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+
