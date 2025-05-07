@@ -3,4 +3,5 @@ include 'config-server'
 include 'gateway'
 include 'member'
 include 'trip'
+include 'eureka-server'
 
