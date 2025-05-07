@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/eureka-server" />
             <option value="$PROJECT_DIR$/gateway" />
             <option value="$PROJECT_DIR$/member" />
+            <option value="$PROJECT_DIR$/traveler" />
             <option value="$PROJECT_DIR$/trip" />
           </set>
         </option>
