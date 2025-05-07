@@ -15,7 +15,7 @@ import travelnote.dto.TripResponse;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/trips")
+@RequestMapping("/trips")
 public class TripController {
 
     private final TripService tripService;
