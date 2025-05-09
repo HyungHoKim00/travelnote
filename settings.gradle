@@ -5,4 +5,5 @@ include 'member'
 include 'trip'
 include 'eureka-server'
 include 'traveler'
+include 'common-library'
 

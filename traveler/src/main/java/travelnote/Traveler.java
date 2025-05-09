@@ -15,24 +15,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
-public class Member {
+public class Traveler {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    private Long id;
+    @Column(name = "traveler_id")
+    private Long travelerId;
 
-    private String name;
+    private Long memberId;
 
-    @Column(unique = true)
-    private String email;
+    private Long tripId;
 
-    private String password;
-
-    public Member(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public Traveler(Long memberId, Long tripId) {
+        this.memberId = memberId;
+        this.tripId = tripId;
     }
 
     @Override
@@ -40,23 +36,24 @@ public class Member {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Member member)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        return Objects.equals(id, member.id) && Objects.equals(email, member.email);
+        Traveler traveler = (Traveler) o;
+        return Objects.equals(travelerId, traveler.travelerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email);
+        return Objects.hashCode(travelerId);
     }
 
     @Override
     public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+        return "Traveler{" +
+                "travelerId=" + travelerId +
+                ", memberId=" + memberId +
+                ", tripId=" + tripId +
                 '}';
     }
 }
