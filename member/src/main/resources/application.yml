@@ -1,7 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: member-service
+  datasource:
+    url: jdbc:h2:mem:memberdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
 security:
   jwt:
     token:
-      secret-key: test
+      secret-key: ${JWT_SECRET_KEY:test}
       expire-length: 3600000
       algorithm: HS256
 
@@ -14,12 +33,17 @@ cookie:
   same-site: none
   max-age: 7200 #2시간
 
-spring:
-  application:
-    name: member-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka
+app:
+  jwt:
+    secret: your-secret-key-here-must-be-at-least-32-characters
+    expiration: 86400000  # 24시간
 

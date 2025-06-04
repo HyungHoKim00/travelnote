@@ -1,8 +1,27 @@
+server:
+  port: 8083
+
 spring:
   application:
-    name: trip-service
+    name: traveler-service
+  datasource:
+    url: jdbc:h2:mem:travelerdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

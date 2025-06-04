@@ -3,22 +3,20 @@ package travelnote;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import travelnote.dto.MembersRequest;
-import travelnote.dto.MembersResponse;
-import travelnote.proxy.MemberService;
+import travelnote.dto.TravelerResponse;
+import travelnote.dto.TravelersResponse;
 
 @Service
 @RequiredArgsConstructor
 public class TravelerService {
 
     private final TravelerRepository travelerRepository;
-    private final MemberService memberService;
 
-    public MembersResponse getTravelersByTripId(long tripId) {
+    public TravelersResponse getTravelersByTripId(long tripId) {
         List<Traveler> travelers = travelerRepository.findAllByTripId(tripId);
-        List<Long> memberIds = travelers.stream()
-                .map(Traveler::getMemberId)
+        List<TravelerResponse> responses = travelers.stream()
+                .map(t -> new TravelerResponse(t.getTravelerId(), t.getMemberId(), t.getName()))
                 .toList();
-        return memberService.getMembersById(new MembersRequest(memberIds));
+        return new TravelersResponse(responses);
     }
 }

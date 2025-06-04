@@ -37,7 +37,7 @@ public class TokenProvider {
         return expiration.after(now);
     }
 
-    private Claims extractClaims(String token) {
+    public Claims extractClaims(String token) {
         try {
             return Jwts.parserBuilder()
                     .setSigningKey(tokenProperties.secretKey().getBytes())

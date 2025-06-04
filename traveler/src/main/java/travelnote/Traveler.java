@@ -26,9 +26,12 @@ public class Traveler {
 
     private Long tripId;
 
-    public Traveler(Long memberId, Long tripId) {
+    private String name;
+
+    public Traveler(Long memberId, Long tripId, String name) {
         this.memberId = memberId;
         this.tripId = tripId;
+        this.name = name;
     }
 
     @Override
@@ -54,6 +57,7 @@ public class Traveler {
                 "travelerId=" + travelerId +
                 ", memberId=" + memberId +
                 ", tripId=" + tripId +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

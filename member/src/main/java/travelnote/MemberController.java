@@ -5,15 +5,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import travelnote.auth.CookieManager;
 import travelnote.dto.LoginRequest;
-import travelnote.dto.MembersRequest;
-import travelnote.dto.MembersResponse;
 import travelnote.dto.SignupRequest;
 import travelnote.dto.SignupResponse;
 
@@ -47,11 +44,5 @@ public class MemberController {
         return ResponseEntity.noContent()
                 .header(HttpHeaders.SET_COOKIE, cookie.toString())
                 .build();
-    }
-
-    @GetMapping
-    public ResponseEntity<MembersResponse> getMembersById(@RequestBody MembersRequest request) {
-        MembersResponse membersResponse = memberService.getMembersById(request);
-        return ResponseEntity.ok(membersResponse);
     }
 }
