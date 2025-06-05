@@ -28,10 +28,13 @@ public class Traveler {
 
     private String name;
 
-    public Traveler(Long memberId, Long tripId, String name) {
+    private boolean isSecretary;
+
+    public Traveler(Long memberId, Long tripId, String name, boolean isSecretary) {
         this.memberId = memberId;
         this.tripId = tripId;
         this.name = name;
+        this.isSecretary = isSecretary;
     }
 
     @Override
@@ -58,6 +61,7 @@ public class Traveler {
                 ", memberId=" + memberId +
                 ", tripId=" + tripId +
                 ", name='" + name + '\'' +
+                ", isSecretary=" + isSecretary +
                 '}';
     }
 }

@@ -58,7 +58,7 @@ public class Trip {
                 "id=" + id +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", name='" + name + '\'' +
+                ", tripName='" + name + '\'' +
                 '}';
     }
 }

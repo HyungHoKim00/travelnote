@@ -30,9 +30,7 @@ public class TripController {
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody TripCreateRequest request) {
         TripCreateResponse response = tripService.create(request);
-        return ResponseEntity.created(URI.create("/members/" + response.tripId()))
+        return ResponseEntity.created(URI.create("/trips/" + response.tripId()))
                 .build();
     }
-
-
 }
