@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import travelnote.common.dto.TravelerTotalCostDto;
+import travelnote.dto.PaymentCreateRequest;
+import travelnote.dto.PaymentCreateResponse;
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +22,11 @@ public class PaymentService {
             totalCost += payment.getCost();
         }
         return new TravelerTotalCostDto(totalCost);
+    }
+
+    public PaymentCreateResponse create(PaymentCreateRequest request) {
+        Payment payment = new Payment(request.travelerId(), request.cost(), request.name());
+        Payment savedPayment = paymentRepository.save(payment);
+        return new PaymentCreateResponse(savedPayment.getId());
     }
 } 
