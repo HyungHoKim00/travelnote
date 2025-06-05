@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: payment-service
+spec:
+  hosts:
+  - payment-service
+  http:
+  - route:
+    - destination:
+        host: payment-service
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: payment-service
+spec:
+  host: payment-service
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL 

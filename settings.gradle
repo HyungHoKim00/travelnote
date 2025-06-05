@@ -3,4 +3,5 @@ include 'member'
 include 'trip'
 include 'traveler'
 include 'common-library'
+include 'payment'
 

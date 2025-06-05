@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
-import travelnote.common.dto.TravelerCreateRequest;
+import travelnote.common.dto.TravelerCreateDto;
 
 @RequiredArgsConstructor
 @Component
@@ -13,7 +13,7 @@ import travelnote.common.dto.TravelerCreateRequest;
 public class TravelerService {
     private final RestClient travelerServiceClient;
 
-    public void create(TravelerCreateRequest request) {
+    public void create(TravelerCreateDto request) {
         try {
             travelerServiceClient.post()
                     .uri("/travelers")

@@ -39,4 +39,15 @@ public class RestClientConfig {
             })
             .build();
     }
+
+    @Bean
+    public RestClient paymentServiceClient() {
+        return RestClient.builder()
+            .baseUrl("payment-service")
+            .requestInterceptor((request, body, execution) -> {
+                request.getHeaders().add("x-request-id", java.util.UUID.randomUUID().toString());
+                return execution.execute(request, body);
+            })
+            .build();
+    }
 } 

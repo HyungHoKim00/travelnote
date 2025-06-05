@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import travelnote.common.dto.TravelerCreateRequest;
+import travelnote.common.dto.TravelerCreateDto;
 import travelnote.dto.TravelerCreateResponse;
 import travelnote.dto.TravelersResponse;
 
@@ -27,7 +27,7 @@ public class TravelerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody TravelerCreateRequest request) {
+    public ResponseEntity<Void> create(@RequestBody TravelerCreateDto request) {
         TravelerCreateResponse response = travelerService.create(request);
         return ResponseEntity.created(URI.create("/travelers/" + response.travelerId()))
                 .build();

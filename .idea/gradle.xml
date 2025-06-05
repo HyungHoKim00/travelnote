@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common-library" />
             <option value="$PROJECT_DIR$/member" />
+            <option value="$PROJECT_DIR$/payment" />
             <option value="$PROJECT_DIR$/traveler" />
             <option value="$PROJECT_DIR$/trip" />
           </set>

@@ -1,9 +1,6 @@
-server:
-  port: 8083
-
 spring:
   application:
-    name: traveler-service
+    name: payment-service
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,16 +8,15 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+
+server:
+  port: 8084
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health
   endpoint:
     health:
-      show-details: always
+      show-details: always 

@@ -3,7 +3,7 @@ package travelnote;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import travelnote.common.dto.TravelerCreateRequest;
+import travelnote.common.dto.TravelerCreateDto;
 import travelnote.dto.TripCreateRequest;
 import travelnote.dto.TripCreateResponse;
 import travelnote.dto.TripResponse;
@@ -27,7 +27,7 @@ public class TripService {
         Trip trip = new Trip(request.startDate(), request.endDate(), request.tripName());
         Trip savedTrip = tripRepository.save(trip);
         travelerService.create(
-                new TravelerCreateRequest(request.memberId(), savedTrip.getId(), request.travelerName(), true));
+                new TravelerCreateDto(request.memberId(), savedTrip.getId(), request.travelerName(), true));
         return new TripCreateResponse(savedTrip.getId());
     }
 }
